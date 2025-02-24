@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wonder - PythonX</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <script src="assets/js/cdn.min.js" defer></script>
+    <style>
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-gradient {
+            background: linear-gradient(120deg, #f0f4ff 0%, #f8fafc 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+<nav class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-3">
+        <div class="flex justify-between items-center">
+                <span class="text-2xl font-bold text-blue-600 flex items-center">
+                    <svg class="w-8 h-8 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    PythonX
+                </span>
+            <div x-data="{ openPopup: false }">
+                <a href="#" @click.prevent="openPopup = true" class="bg-blue-600 text-white px-3 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm sm:text-base">S'inscrire</a>
+
+                <div x-show="openPopup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <div class="bg-white p-6 rounded-lg">
+                        <h2 class="text-2xl font-semibold mb-4">Choisissez une option</h2>
+                        <div class="flex justify-center gap-4">
+                            <a href="tel:+243852348687" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">
+                                <i class="fas fa-phone mr-2"></i>Appeler
+                            </a>
+                            <a href="https://wa.me/+243852348687" target="_blank" class="bg-[#25D366] text-white px-4 py-2 rounded-lg hover:bg-[#128C7E]">
+                                <i class="fab fa-whatsapp mr-2"></i>WhatsApp
+                            </a>
+                            <a href="https://www.facebook.com/profile.php?id=61573419246982" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                                <i class="fab fa-facebook-f mr-2"></i>Facebook
+                            </a>
+                        </div>
+                        <button @click="openPopup = false" class="mt-4 text-gray-600 hover:text-gray-800">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero-gradient">
+    <div class="max-w-6xl mx-auto px-4 py-16 sm:py-24 md:py-32 text-center">
+        <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 animate-fade-in">
+            Devenez un expert Python en 1 mois
+            <span class="text-blue-600 block mt-2 text-3xl sm:text-4xl">🚀</span>
+        </h1>
+        <p class="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            Maîtrisez Python grâce à notre formation intensive avec 3 mois de bootcamp.<br>
+        <div class="inline-flex items-center mt-4 bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-2 rounded-full text-white shadow-lg hover:scale-105 transition-transform">
+            <i class="fas fa-tag mr-2 text-yellow-300"></i>
+            <span class="font-bold text-2xl sm:text-3xl">25$</span>
+            <span class="ml-2 text-sm sm:text-base">seulement pour 1 mois</span>
+        </div>
+        </p>
+
+        <!-- Countdown Timer -->
+        <div class="max-w-3xl mx-auto bg-white p-4 sm:p-6 rounded-xl shadow-sm mb-8">
+            <h2 class="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6">Début des cours dans:</h2>
+            <div id="countdown" class="grid grid-cols-2 gap-2 sm:flex sm:justify-center sm:gap-4">
+                <div class="bg-blue-100 px-4 py-2 sm:px-8 sm:py-4 rounded-lg">
+                    <div class="text-2xl sm:text-4xl font-bold text-blue-600" id="days">00</div>
+                    <div class="text-sm sm:text-base text-gray-600">Jours</div>
+                </div>
+                <div class="bg-green-100 px-4 py-2 sm:px-8 sm:py-4 rounded-lg">
+                    <div class="text-2xl sm:text-4xl font-bold text-green-600" id="hours">00</div>
+                    <div class="text-sm sm:text-base text-gray-600">Heures</div>
+                </div>
+                <div class="bg-yellow-100 px-4 py-2 sm:px-8 sm:py-4 rounded-lg">
+                    <div class="text-2xl sm:text-4xl font-bold text-yellow-600" id="minutes">00</div>
+                    <div class="text-sm sm:text-base text-gray-600">Minutes</div>
+                </div>
+                <div class="bg-red-100 px-4 py-2 sm:px-8 sm:py-4 rounded-lg">
+                    <div class="text-2xl sm:text-4xl font-bold text-red-600" id="seconds">00</div>
+                    <div class="text-sm sm:text-base text-gray-600">Secondes</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Features -->
+<section class="py-12 sm:py-16">
+    <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
+        <div class="bg-white p-4 sm:p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow animate-fade-in">
+            <div class="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-4 sm:mb-6">
+                <i class="fas fa-calendar-alt text-blue-600 text-xl sm:text-2xl"></i>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">1 Mois Intensif</h3>
+            <p class="text-gray-600 text-sm sm:text-base">1 mois de pour apprendre les bases de Python</p>
+        </div>
+
+        <div class="bg-white p-4 sm:p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow animate-fade-in">
+            <div class="w-12 h-12 sm:w-16 sm:h-16 bg-green-100 rounded-xl flex items-center justify-center mb-4 sm:mb-6">
+                <svg class="w-6 h-6 sm:w-8 sm:h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">BootCamp</h3>
+            <p class="text-gray-600 text-sm sm:text-base">Mise en pratique, 3 mois d'éxercices et de projets</p>
+        </div>
+
+        <div class="bg-white p-4 sm:p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow animate-fade-in">
+            <div class="w-12 h-12 sm:w-16 sm:h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-4 sm:mb-6">
+                <i class="fas fa-certificate text-purple-600 text-xl sm:text-2xl"></i>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Formation en Ligne</h3>
+            <p class="text-gray-600 text-sm sm:text-base">Une formation à suivre où et quand vous vouler</p>
+        </div>
+    </div>
+</section>
+
+<!-- Programme -->
+<section class="py-12 sm:py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">Programme de Formation</h2>
+        <div class="grid md:grid-cols-2 gap-4 sm:gap-8">
+            <div class="p-4 sm:p-6 bg-gray-50 rounded-xl">
+                <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 flex items-center gap-2">
+                    <i class="fas fa-book-open text-blue-600"></i> Bases de Python
+                </h3>
+                <ul class="space-y-2 text-sm sm:text-base">
+                    <li>• Histoire et installation</li>
+                    <li>• Syntaxe et sémantique</li>
+                    <li>• Types de données</li>
+                    <li>• Conditions et boucles</li>
+                    <li>• Fonctions</li>
+                </ul>
+            </div>
+            <div class="p-4 sm:p-6 bg-gray-50 rounded-xl">
+                <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 flex items-center gap-2">
+                    <i class="fas fa-rocket text-blue-600"></i> Concepts Avancés
+                </h3>
+                <ul class="space-y-2 text-sm sm:text-base">
+                    <li>• Listes et dictionnaires</li>
+                    <li>• Programmation orientée objet</li>
+                    <li>• Héritage et polymorphisme</li>
+                    <li>• Gestion d'exceptions</li>
+                    <li>• Modules et packages</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="py-12 sm:py-20 bg-gray-100 text-center">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12">Contactez-nous</h2>
+    <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 px-4">
+        <a href="tel:+243852348687" class="w-full sm:w-auto bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors">
+            <i class="fas fa-phone mr-2"></i>Appeler
+        </a>
+        <a href="https://wa.me/+243852348687" target="_blank" class="w-full sm:w-auto bg-[#25D366] text-white px-6 py-3 rounded-lg hover:bg-[#128C7E] transition-colors">
+            <i class="fab fa-whatsapp mr-2"></i>WhatsApp
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61573419246982" target="_blank" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
+            <i class="fab fa-facebook-f mr-2"></i>Facebook
+        </a>
+
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-8 mt-12 sm:mt-20">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+        <p class="mb-4 text-sm sm:text-base">© 2025 PythonX - Tous droits réservés</p>
+        <div class="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-6">
+            <a href="#" class="hover:text-blue-400 text-sm sm:text-base">Conditions d'utilisation</a>
+            <a href="#" class="hover:text-blue-400 text-sm sm:text-base">Politique de confidentialité</a>
+        </div>
+    </div>
+</footer>
+<script src="assets/js/script.js"></script>
+</body>
+</html>
