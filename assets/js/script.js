@@ -1,5 +1,5 @@
 function updateCountdown() {
-    const targetDate = new Date("March 1, 2025 00:00:00").getTime();
+    const targetDate = new Date("March 5, 2025 00:00:00").getTime();
     const now = new Date().getTime();
     const diff = targetDate - now;
 
@@ -18,3 +18,6 @@ function updateCountdown() {
     document.getElementById('minutes').innerText = minutes;
     document.getElementById("seconds").innerText = seconds;
 }
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
